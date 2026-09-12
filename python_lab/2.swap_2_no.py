@@ -1,3 +1,6 @@
+#program 2
+#swap 2 numbers
+
 num_1 = int(input("Enter num 1 : "))
 num_2 = int(input("Enter num 2 : "))
 
