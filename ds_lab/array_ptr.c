@@ -3,7 +3,7 @@
 
 void create(int n, int *ptr){
     for(int i = 0; i<n ; i++){
-        printf("Enter Element : \n");
+        printf("\nEnter Element %d : \n",i);
         scanf("%d",&ptr[i]);
     }
 }
@@ -43,11 +43,11 @@ int main(){
 
     printf("\nArray Operations\n");
     printf("-------------------\n");
-    printf("1 -> display\n2 -> Insert\n3 -> Delete\n0 -> Exit\n");
+    printf("1 -> Display\n2 -> Insert\n3 -> Delete\n0 -> Exit\n");
 
     while(!exit_flag){
 
-    printf("Enter choice : ");
+    printf("\nEnter choice : ");
     scanf("%d",&choice);
 
     switch (choice){
