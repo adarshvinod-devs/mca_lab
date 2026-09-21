@@ -55,16 +55,16 @@ int main(){
             display(n,ptr);
             break;
         case 2:
-            printf("Enter position to insert element :\n");
+            printf("\nEnter position to insert element :\n");
             scanf("%d",&pos);
-            printf("Enter new element to insert :\n");
+            printf("\nEnter new element to insert :\n");
             scanf("%d",&num);
             n++;
             ptr = realloc(ptr, sizeof(int) * n);
             insertAtPosition(n,ptr,pos,num);
             break;
         case 3:
-            printf("Enter position to delet: \n");
+            printf("\nEnter position to delet: \n");
             scanf("%d",&pos);
             delete(n,pos,ptr);
             n--;
@@ -73,7 +73,7 @@ int main(){
             exit_flag = 1;
             break;
         default:
-            printf("Invalid Choice\n");
+            printf("\nInvalid Choice\n");
 
         }
     }
