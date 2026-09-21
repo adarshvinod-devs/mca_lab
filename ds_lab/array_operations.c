@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int insert(int arr[], int n, int pos){
     for(int i=n;i>pos;i--){
