@@ -40,8 +40,24 @@ void insertAtEnd(struct Node ** head, int num){
 
 }
 
+void insertAtPosition(struct Node ** head, int pos, int num){
+    struct Node * temp = *head, *newNode;
+    for(int i = 0; i < pos -1; i++){
+        temp = temp -> next;
+    }
+    
+    newNode = malloc(sizeof(struct Node));
+    newNode -> data = num;
+    newNode -> next = temp -> next;
+    temp -> next = newNode;
+
+   
+
+
+}
+
 int main(){
-    int n, num;
+    int n, num, pos;
     struct Node *newNode, *temp, *head = NULL;
 
     printf("Enter the number of nodes to be created :\n");
@@ -72,6 +88,7 @@ int main(){
     scanf("%d", &num);
 
     insertAtBeginning(&head,num);
+    n++;
 
     display(head);
 
@@ -79,8 +96,21 @@ int main(){
     scanf("%d",&num);
 
     insertAtEnd(&head,num);
+    n++;
 
     display(head);
+
+    printf("Enter position to insert: \n");
+    scanf("%d",&pos);
+
+    printf("Enter element to add at position: \n");
+    scanf("%d",&num);
+
+    insertAtPosition(&head,pos,num);
+
+    display(head);
+
+
 
     
     return 0;
