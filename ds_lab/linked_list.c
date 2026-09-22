@@ -8,6 +8,17 @@ struct Node{
     struct Node *next;
 };
 
+void display(struct Node* head,struct Node* temp){
+    temp = head;
+    printf("\nData\n");
+    printf("----\n");
+    while(temp!=NULL ){
+        printf("%d\n",temp -> data);
+        temp = temp -> next;
+    }
+    printf("\n");
+}
+
 int main(){
     int n;
     struct Node *newNode, *temp, *head = NULL;
@@ -34,6 +45,7 @@ int main(){
 
     }
     
+    display(head,temp);
 
 
 }
