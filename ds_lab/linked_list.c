@@ -153,7 +153,7 @@ int main(){
             printf("\nEnter position to delete: \n");
             scanf("%d",&pos);
 
-            if (pos > n){
+            if (pos >= n){
                 printf("\nOut of Range\n");
                 break;
             }
