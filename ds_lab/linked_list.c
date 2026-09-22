@@ -8,7 +8,8 @@ struct Node{
     struct Node *next;
 };
 
-void display(struct Node* head,struct Node* temp){
+void display(struct Node* head){
+    struct Node* temp;
     temp = head;
     printf("\nData\n");
     printf("----\n");
@@ -19,8 +20,28 @@ void display(struct Node* head,struct Node* temp){
     printf("\n");
 }
 
+void insertAtBeginning(struct Node** head, int num){
+    struct Node *newNode;
+    newNode = malloc(sizeof(struct Node));
+    newNode -> data = num;
+    newNode -> next = *head;
+    *head = newNode;
+}
+
+void insertAtEnd(struct Node ** head, int num){
+    struct Node * temp = *head, *newNode;
+    while(temp -> next != NULL){
+        temp = temp -> next;
+    }
+    newNode = malloc(sizeof(struct Node));
+    newNode -> data = num;
+    newNode -> next = NULL;
+    temp -> next = newNode;
+
+}
+
 int main(){
-    int n;
+    int n, num;
     struct Node *newNode, *temp, *head = NULL;
 
     printf("Enter the number of nodes to be created :\n");
@@ -45,7 +66,22 @@ int main(){
 
     }
     
-    display(head,temp);
+    display(head);
 
+    printf("Enter element to insert at begining: ");
+    scanf("%d", &num);
 
+    insertAtBeginning(&head,num);
+
+    display(head);
+
+    printf("\nEnter element to insert at end :\n");
+    scanf("%d",&num);
+
+    insertAtEnd(&head,num);
+
+    display(head);
+
+    
+    return 0;
 }
