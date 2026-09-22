@@ -51,13 +51,27 @@ void insertAtPosition(struct Node ** head, int pos, int num){
     newNode -> next = temp -> next;
     temp -> next = newNode;
 
-   
+}
 
-
+void delete(struct Node **head, int pos){
+    struct Node * temp = *head;
+    struct Node * toFree;
+    if(pos == 0){
+        toFree = *head;
+        *head = (*head)-> next;
+        free(toFree);
+        return;
+    }
+    for(int i = 0; i < pos - 1; i++){
+        temp = temp -> next;
+    }
+    toFree = temp -> next;
+    temp -> next = temp -> next -> next;
+    free(toFree);
 }
 
 int main(){
-    int n, num, pos;
+    int n, num, pos, choice, exitFlag = 0;
     struct Node *newNode, *temp, *head = NULL;
 
     printf("Enter the number of nodes to be created :\n");
@@ -82,36 +96,81 @@ int main(){
 
     }
     
-    display(head);
+    printf("\nLinked List Operstions:\n");
+    printf("\n-----------------------\n");
+    printf("\n1 -> Display\n2 -> Insert at begining\n3 -> Insert at end\n4 -> Insert at position\n5 -> Delete\n0 -> Exit\n");
+    while(!exitFlag){
+    printf("\nEnter your Choice :\n");
+    scanf("%d",&choice);
+    switch (choice){
+        case 1:
 
-    printf("Enter element to insert at begining: ");
-    scanf("%d", &num);
+            display(head);
+            break;
 
-    insertAtBeginning(&head,num);
-    n++;
+        case 2:
 
-    display(head);
+            printf("\nEnter element to insert at begining: \n");
+            scanf("%d", &num);
 
-    printf("\nEnter element to insert at end :\n");
-    scanf("%d",&num);
+            insertAtBeginning(&head,num);
+            n++;
+            break;
 
-    insertAtEnd(&head,num);
-    n++;
+        case 3:
 
-    display(head);
+            printf("\nEnter element to insert at end :\n");
+            scanf("%d",&num);
 
-    printf("Enter position to insert: \n");
-    scanf("%d",&pos);
+            insertAtEnd(&head,num);
+            n++;
+            break;
 
-    printf("Enter element to add at position: \n");
-    scanf("%d",&num);
+        case 4:
 
-    insertAtPosition(&head,pos,num);
+            printf("\nEnter position to insert: \n");
+            scanf("%d",&pos);
 
-    display(head);
+            if (pos > n){
+                printf("\nOut of Range\n");
+                break;
+            }
+            printf("\nEnter element to add at position: \n");
+            scanf("%d",&num);
 
+            if (pos == 0){
+                insertAtBeginning(&head,num);
+                n++;
+                break;
+            }
+            
+            insertAtPosition(&head,pos,num);
+            n++;
+            break;
 
+        case 5:
 
-    
+            printf("\nEnter position to delete: \n");
+            scanf("%d",&pos);
+
+            if (pos > n){
+                printf("\nOut of Range\n");
+                break;
+            }
+
+            delete(&head, pos);
+            n--;
+            break;
+
+        case 0:
+
+            exitFlag = 1;
+            break;
+        
+        default:
+            
+            printf("\nInvalid Choice\n");   
+    }
+    }
     return 0;
 }
