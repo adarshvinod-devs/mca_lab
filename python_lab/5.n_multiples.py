@@ -1,9 +1,9 @@
 #program 5
 #Find the 1st n multiples of a number
 
-number = int(input("Enter number :"))
+number = int(input("Enter number : "))
 
-multiples = int(input("Enter number of multiples :"))
+multiples = int(input("Enter number of multiples : "))
 
 for i in range(multiples):
     print((i + 1) * number)
