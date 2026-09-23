@@ -17,4 +17,3 @@ print(sum)
 print(100 * 101) # n(n + 1)
 
 print(sum(range(2,201,2)))
-
