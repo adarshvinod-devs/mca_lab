@@ -1,69 +1,77 @@
 #include <stdio.h>
 #define MAX 10
+int top = -1;
+int stack[MAX];
 
-void push(int stack[],int *top, int num){
-    if(*top == MAX - 1){
-        printf("Stack overflow\n");
+void push(int num){
+    if(top == MAX - 1){
+        printf("\nStack overflow\n");
     }
     else{
-        *top ++;
-        stack[*top] == num;
+        top ++;
+        stack[top] = num;
     }
 }
 
-void pop(int stack[], int *top){
-    if(*top == -1){
+void pop(){
+    if(top == -1){
         printf("\nStack Underflow\n");
     }
     else{
-        printf("%d popped\n",stack[*top]);
-        *top--;
+        printf("\n%d popped\n",stack[top]);
+        top--;
     }
 }
 
-void display(int stack[], int *top){
-    if(*top == -1){
-        printf("Stack Empty");
+void display(){
+    if(top == -1){
+        printf("\nStack Empty\n");
     }
     else{
-        for(int i = *top; i >= 0; i--){
-            printf("%d",stack[*top]);
+        printf("\n");
+        for(int i = top; i >= 0; i--){
+            printf("%d\n",stack[i]);
         }
+        printf("\n");
     }
 }
 
-void peek(int stack[], int *top){
-    printf("%d",stack[*top]);
+void peek(){
+        if(top == -1){
+        printf("\nStack Empty\n");
+    }
+    else{
+        printf("\n%d\n",stack[top]);}
 
 }
 
 int main(){
-    int stack[MAX];
-    int choice, num, exitFlag = 0, top = -1;
+    int choice, num, exitFlag = 0;
 
-    printf("\nStack Operations\n");
+    printf("\nStack Operations");
     printf("\n----------------\n");
     printf("1 -> Push\n2 -> Pop\n3 -> Peek\n4 -> Display\n0 -> Exit\n");
     
     while(!exitFlag){
 
-        printf("Enter Choice:  \n");
+        printf("\nEnter Choice:  ");
         scanf("%d",&choice);
 
         switch (choice){
             case 1:
-                printf("Enter number to push\n");
+                printf("\nEnter number to push: ");
                 scanf("%d",&num);
-                push(stack,&top,num);
+                push(num);
                 break;
             case 2:
-                pop(stack,&top);
+                pop();
                 break;
             case 3:
-                peek(stack, &top);
+                peek();
                 break;
             case 4:
-                display(stack,&top);
+                display();
+                break;
             case 0:
                 exitFlag = 1;
                 break;
