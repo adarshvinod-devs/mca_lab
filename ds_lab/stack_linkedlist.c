@@ -11,17 +11,12 @@ struct Node * head = NULL;
 
 void push(int num){
     struct Node * newNode;
-    newNode = malloc(sizeof(newNode));
+    newNode = malloc(sizeof( struct Node));
     newNode -> data = num;
-    newNode -> next = NULL;
-
-    if (head == NULL){
-        head = newNode;
-    }else{
-        newNode -> next = head;
-        head = newNode;
+    newNode -> next = head;
+    head = newNode;
         
-    }
+    
 }
 
 void pop(){
