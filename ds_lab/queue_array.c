@@ -52,7 +52,7 @@ int main(){
         switch (choice)
         {
         case 1:
-            printf("\nEnter Number to enqueue :");
+            printf("\nEnter Number to enqueue : ");
             scanf("%d",&num);
             enqueue(num);
             break;
